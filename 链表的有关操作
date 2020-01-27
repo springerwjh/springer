@@ -1,0 +1,43 @@
+typedef struct Wnode{
+	int data;
+	struct Wnode *next;
+}snode;
+ //结点的定义
+
+int Initlist(int n ){
+	snode *L;
+	snode *p;
+	int gj;
+	L=(snode*)malloc(sizeof(snode));
+	p=L;
+	int i=0;
+	while(i<n)
+	{
+		p->next=(snode*)malloc(sizeof(snode));
+		p=p->next;
+		scanf("%d",&gj);
+		p->data=gj;
+		i++;
+	}
+	return L;
+ }
+  //创建并输入节点数为n的初始值（未初始化和考虑空间分配失败）
+  
+  int putlist(snode *L,int n){
+	snode *q;
+	q=L;
+	printf("(");
+	int i=0;
+	while(i<n)
+	{
+		q=q->next;
+		printf("%d",q->data);
+		i++;
+		if(i<n)
+		{
+			printf(",");
+		}
+	}
+	printf(")\n");
+}
+//对链表L的输出（以括号包围，数据之间用逗号隔开）
